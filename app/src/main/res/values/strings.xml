@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">grocery</string>
+    <string name="share">share</string>
+    <string name="notification">notification</string>
+    <string name="cart">cart</string>
+    <string name="search">search</string>
+    <string name="image">images</string>
+    <string name="title1">Best Selling items</string>
+
+    <string-array name="item">
+        <item>location</item>
+        <item>Aurangabad</item>
+        <item>akola</item>
+        <item>pune</item>
+
+    </string-array>
+</resources>

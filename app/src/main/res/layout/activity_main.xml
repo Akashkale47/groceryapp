@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dulwhite"
+    tools:context=".MainActivity">
+
+    
+    <!--Start region toolbar Toolbars contains Buttons-->
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb_actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lightPink"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageView
+            android:contentDescription="@string/image"
+            android:id="@+id/iv_Burger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_burgur"
+            />
+
+        <Spinner
+            android:entries="@array/item"
+            android:layout_marginLeft="32dp"
+            android:layout_toRightOf="@id/iv_Burger"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/iv_Burger"
+            android:layout_marginStart="32dp" />
+
+            <ImageView
+                android:contentDescription="@string/share"
+                android:layout_toLeftOf="@id/iv_notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_share"
+                android:layout_marginRight="24dp"
+                android:layout_toStartOf="@id/iv_notification"
+                android:layout_marginEnd="24dp" />
+
+
+            <ImageView
+                android:contentDescription="@string/notification"
+                android:layout_marginRight="24dp"
+                android:id="@+id/iv_notification"
+                android:layout_toLeftOf="@id/iv_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_notifications"
+                android:layout_marginEnd="24dp"
+                android:layout_toStartOf="@id/iv_cart" />
+
+            <ImageView
+                android:contentDescription="@string/cart"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="16dp"
+                android:id="@+id/iv_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_shopping"
+                android:layout_marginEnd="16dp"
+                android:layout_alignParentRight="true" />
+
+        </RelativeLayout>
+
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb_searchbar"
+        android:layout_below="@id/tb_actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lightPink"
+        >
+        <EditText
+            android:drawableLeft="@drawable/ic_search"
+            android:hint="@string/search"
+            android:background="@drawable/roundedrect"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
+            android:paddingLeft="16dp"
+            android:paddingEnd="16dp"
+            android:paddingRight="16dp"
+            android:inputType="text"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
+            android:drawableStart="@drawable/ic_search" />
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <!--End region toolbar-->
+
+    <!--refresh layout-->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/srl_refresh"
+        android:layout_below="@id/tb_searchbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--Scrollview in vertical-->
+
+    <ScrollView
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+<!--linear layout for cardview listing-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+<!--Start_Slider_cardview-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_promotion"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            app:cardCornerRadius="8dp"
+            android:elevation="2dp"
+            android:layout_height="198dp"
+            tools:targetApi="lollipop" >
+
+            <ss.com.bannerslider.Slider
+                app:slider_animateIndicators="true"
+                app:slider_indicatorSize="12dp"
+                app:slider_selectedSlideIndicator="@drawable/selected_dot_indicator"
+                app:slider_unselectedSlideIndicator="@drawable/unselected_dot_indicator"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:id="@+id/banner_slider1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
+
+
+
+
+        </androidx.cardview.widget.CardView>
+
+        <!--End_Slider_cardview-->
+
+
+        <!--Start_Category_recyclerview-->
+
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="@color/lightPink"
+            android:elevation="2dp"
+            android:id="@+id/cv_category"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            app:cardCornerRadius="4dp"
+            android:layout_height="wrap_content"
+            tools:targetApi="lollipop" >
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rc_Recyclerview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+        </androidx.cardview.widget.CardView>
+        <!--End_Category_recyclerview-->
+
+
+        <!--Start_label-->
+
+
+        <TextView
+            android:id="@+id/tv_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/roboto_slab_bold"
+            android:text="@string/title1"
+            android:textSize="16sp" />
+
+        <!--End_label-->
+
+
+        <!--Start_product_listing_recyclerview1-->
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_products1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!--End_product_listing_recyclerview1-->
+        <!--Start_label-->
+        <TextView
+            android:id="@+id/tv_label2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/roboto_slab_bold"
+            android:text="@string/title1"
+            android:textSize="16sp" />
+        <!--End_label-->
+
+        <!--Start_product_listing_recyclerview2-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_products2"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="269dp"/>
+
+        <!--End_product_listing_recyclerview2-->
+        <!--Start_label-->
+        <TextView
+            android:id="@+id/tv_label3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/roboto_slab_bold"
+            android:text="@string/title1"
+            android:textSize="16sp" />
+
+        <!--End_label-->
+
+        <!--Start_product_listing_recyclerview3-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_products3"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <!--End_product_listing_recyclerview3-->
+
+
+
+
+
+
+    </LinearLayout>
+
+    </ScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+</RelativeLayout>
